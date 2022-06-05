@@ -50,6 +50,9 @@ img {
 }
 
 .btnstyle {
+  background-color: #5fd068;
+  border: 1px solid #f2ebe9;
+  font-size: 0.8rem;
   margin-right: 8px;
   width: 30px;
 }
