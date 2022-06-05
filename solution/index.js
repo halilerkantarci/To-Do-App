@@ -25,56 +25,44 @@ button.addEventListener("click", function () {
   if (!input.value) {
     alert("Lütfen Bir Madde Ekleyiniz");
   } else {
-    let textLine = document.createElement("p");
+    let p = document.createElement("p");
     let btn2 = document.createElement("button");
-    btn2.innerHTML = "+";
+    let btn3 = document.createElement("button");
+    let space = document.createElement("br");
+    btn2.innerHTML = "COMPLETE";
+    btn3.innerHTML = "DELETE";
+    addSection.appendChild(btn3);
     addSection.appendChild(btn2);
-    addSection.appendChild(textLine);
-    textLine.classList.add("ilstyle");
-    // btn2.classList.add("btnstyle");
-    textLine.innerHTML = input.value;
-    stylebutton();
+    addSection.appendChild(p);
+    addSection.appendChild(space);
+    p.classList.add("ilstyle");
+    btn3.classList.add("btnstyle2");
+    btn2.classList.add("btnstyle");
+    p.innerHTML = input.value;
+    input.value = "";
+    // stylebutton();
     inputControl();
-    textLine.addEventListener("click", function () {
-      textLine.style.textDecoration = "line-through";
+    btn2.addEventListener("click", function () {
+      p.style.textDecoration = "line-through";
     });
-    textLine.addEventListener("dblclick", function () {
-      addSection.removeChild(textLine);
+    btn3.addEventListener("click", function () {
+      addSection.removeChild(p);
       addSection.removeChild(btn2);
+      addSection.removeChild(btn3);
     });
   }
 });
 
-// comp.addEventListener("click", (e) => {
-//   const z = e.target;
-//   if (z.parentElement.classList.contains("ilstyle")) {
-//     z.parentElement.style.textDecoration = "line-through";
-//     // struck(z.parentElement);
-//   }
-// });
-
-// function struck(ele) {
-//   ele.style = "text-decoration:line-through; list-style-type:none";
-// }
-
 function inputControl() {
   input.value = "";
 }
-// function styleIl() {
-//   document.querySelectorAll("ul li").forEach((a) => {
-//     a.setAttribute("class", "ilstyle");
-//   });
-// }
-function stylebutton() {
-  document.querySelectorAll(".todos button").forEach((a) => {
-    a.setAttribute("class", "btnstyle");
-  });
-}
+
 // function stylebutton() {
-//   document.querySelectorAll(".ok button").forEach((a) => {
+//   document.querySelectorAll(".todos button").forEach((a) => {
 //     a.setAttribute("class", "btnstyle");
 //   });
 // }
+
 input.addEventListener("keydown", (e) => {
   if (e.keyCode == 13) {
     button.click();
